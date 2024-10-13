@@ -1,0 +1,9 @@
+> show ip interface brief (sh ip int brief): mostra o endereço ip atribuído às interfaces do dispositivo.
+> show interface <nome> (sh int <nome>): mostra os detalhes da interface <nome>. Ex: show interface vlan 1.
+> enable (en/ena): entrar no modo privilegiado
+# copy running-config startup-config: salva as configurações atuais.
+# show running-config: mostra as configurações atuais em tempo de execução (perdidas ao rebootar a caixa).
+# enable secret <senha>: define <senha> para entrar no modo privilegiado.
+(config)# line vty 0 4: permite 5 conexões simultâneas no dispositivo via telnet ou SSH
+(config-line)# login // (config-line)# password <senha>: define a senha para login remoto no dispositivo (usando password).
+(config)# service password-encryption: criptografa o password para login. Não deve ser usado pois é muito fácil de desencriptar.
