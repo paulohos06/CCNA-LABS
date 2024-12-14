@@ -7,3 +7,30 @@
 (config)# line vty 0 4: permite 5 conexões simultâneas no dispositivo via telnet ou SSH
 (config-line)# login // (config-line)# password <senha>: define a senha para login remoto no dispositivo (usando password).
 (config)# service password-encryption: criptografa o password para login. Não deve ser usado pois é muito fácil de desencriptar.
+
+
+Comandos para NAT
+# show ip nat statistics
+# show ip nat translations
+# clear ip nat translation *
+
+1 - Static NAT
+# interface g0/0
+# ip address 10.1.1.3 255.255.255.0
+# ip nat inside
+
+# interface serial0/0
+# ip address 200.1.1.251 255.255.255.0
+# ip nat outside
+
+2 - Dynamic NAT 
+# interface GigabitEthernet0/0
+# ip address 10.1.1.3 255.255.255.0
+# ip nat inside
+
+# interface serial0/0
+# ip address 200.1.1.251 255.255.255.0
+# ip nat outside
+
+# ip nat pool KALAU 200.1.1.1 200.1.1.2 netmask 255.255.255.252
+# ip nat inside source list 1 pool KALAU
